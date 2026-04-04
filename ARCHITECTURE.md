@@ -76,18 +76,23 @@ Log Results (RssFeedAggregatorService)
 External integrations and APIs.
 
 **Components:**
-- `DiscordWebhookClient`: Discord webhook integration
-  - Converts RSS entries to Discord embeds
-  - Source-based color coding (Kotlin purple, Android green)
-  - Batch sending (up to 10 embeds per message)
-  - Proper error handling with logging
+- `DiscordWebhookClient`: Multi-channel Discord webhook integration
+  - Routes entries by feed type (Kotlin → #kotlin, Android → #android)
+  - Converts RSS entries to Discord embeds with priority-based coloring
+  - Priority levels: HIGH (🔥 Orange), MEDIUM (⚡ Blue), LOW (🌿 Green)
+  - Batch sending (2 entries per message for safety)
+  - Resilient error handling with per-embed retry fallback
+  - HTML entity sanitization and field truncation
+  - Proper error logging with payload details
 
 **Discord Format Features:**
-- Rich embeds with metadata fields
-- Source-specific tags and colors
+- Rich embeds with metadata fields (Source, Published, Priority, Author)
+- Priority emoji prefixes in title (🔥 [HIGH], ⚡ [MEDIUM], 🌿 [LOW])
+- Priority-based color coding (soft, developer-friendly colors)
+- Multi-channel routing based on feed type
 - ISO 8601 timestamps
-- Author information
 - Clickable links
+- Per-feed-type footer labels
 
 ### 5. **Configuration Layer** (`config/`)
 Centralized configuration management.
@@ -101,10 +106,11 @@ Centralized configuration management.
 
 **Environment Variables:**
 ```
-DISCORD_WEBHOOK_URL (required) - Discord webhook URL
+KOTLIN_WEBHOOK_URL (required) - Discord webhook for #kotlin channel
+ANDROID_WEBHOOK_URL (required) - Discord webhook for #android channel
 FILTER_HOURS (optional) - Time window in hours (default: 24)
 KEYWORDS (optional) - Comma-separated keyword filter
-FEEDS (optional) - Custom feeds in "name:url" format
+FEEDS (optional) - Custom feeds in "name:url:TYPE" format
 ```
 
 ### 6. **Main Layer** (`Main.kt`)

@@ -4,22 +4,23 @@
 
 A production-quality **RSS Feed Aggregator Bot** in Kotlin that:
 1. Fetches updates from multiple RSS feeds (Kotlin Blog, Android Developers)
-2. Categorizes entries by **update type** (Release, Feature, Breaking, Experimental, Fix, News)
+2. Classifies entries by **priority** (HIGH: releases/breaking, MEDIUM: beta/preview, LOW: other)
 3. Filters entries by time window (24 hours) and keywords (Compose, Android, etc.)
-4. Prevents duplicate messages using persistent JSON tracking
+4. Prevents duplicate messages using persistent JSON tracking **per feed type**
 5. Routes messages to **separate Discord channels** via different webhooks
-6. Sends **rich Discord embeds** with soft, developer-friendly colors and type emojis
-7. Runs automatically every 6 hours via GitHub Actions
-8. Handles errors gracefully without crashing
+6. Sends **rich Discord embeds** with priority-based colors and priority emoji labels
+7. Runs automatically every 6 hours via GitHub Actions with dedup caching
+8. Handles errors gracefully without crashing (resilient partial success)
 
 ## Project Statistics
 
 - **Language**: Kotlin 2.2.20 (JVM)
-- **Files**: 10 Kotlin files + 1 Service file (810+ lines of code)
-- **Version**: v3.0 (type-based tagging with soft colors)
+- **Files**: 10 Kotlin files + documentation (810+ lines of code)
+- **Version**: v4.0 (priority-based classification with GitHub Actions caching)
 - **Dependencies**: OkHttp, Rome, Jackson, SLF4J, Logback
-- **Build Time**: ~2 seconds
-- **JAR Size**: 46 KB (includes all dependencies)
+- **Build Time**: ~2-3 seconds
+- **Execution Time**: ~20-30 seconds (GitHub Actions run)
+- **Documentation**: 13 markdown files (950+ lines)
 
 ## File Structure
 
@@ -36,14 +37,16 @@ UpToDateDeveloper/
 │   │   └── Models.kt                          (FeedType, UpdateTag, RssEntry, etc.)
 │   ├── service/
 │   │   ├── RssEntryFilter.kt                  (Filtering logic)
-│   │   ├── DuplicateDetector.kt               (Deduplication with JSON)
-│   │   ├── UpdateTagCalculator.kt             (Tag detection engine)
-│   │   └── RssFeedAggregatorService.kt        (Orchestration)
+│   │   ├── DuplicateDetector.kt               (Deduplication with per-feed-type JSON)
+│   │   ├── PriorityCalculator.kt              (Priority classification)
+│   │   └── RssFeedAggregatorService.kt        (Orchestration & pipeline)
 │   └── Main.kt                                 (Entry point)
 ├── src/main/resources/
 │   └── logback.xml                            (Logging config)
-├── .github/workflows/
-│   └── rss-aggregator.yml                    (GitHub Actions schedule)
+├── .github/
+│   ├── workflows/
+│   │   └── rss-aggregator.yml                (GitHub Actions with cache)
+│   └── copilot-instructions.md               (Copilot dev guide)
 ├── build.gradle.kts                           (Gradle config)
 ├── settings.gradle.kts
 ├── README.md                                  (Full documentation)

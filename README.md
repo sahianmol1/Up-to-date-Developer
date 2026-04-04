@@ -51,7 +51,8 @@ src/main/kotlin/com/uptodatedeveloper/
 
 ```bash
 # Required
-DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/..."
 
 # Optional
 FILTER_HOURS=24                    # Time window for entries (default: 24)
@@ -86,7 +87,8 @@ FEEDS="name1:url1;name2:url2"      # Custom feeds (uses defaults if not set)
 
 3. **Set environment variables**
    ```bash
-   export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
+   export KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_KOTLIN_WEBHOOK"
+   export ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ANDROID_WEBHOOK"
    export FILTER_HOURS=24
    export KEYWORDS="Kotlin,Compose,Android"
    ```
@@ -109,13 +111,19 @@ FEEDS="name1:url1;name2:url2"      # Custom feeds (uses defaults if not set)
 
 ### GitHub Actions Setup
 
-1. **Add Discord webhook as secret**
+1. **Add Discord webhooks as secrets**
    - Go to repository → Settings → Secrets and variables → Actions
    - Click "New repository secret"
-   - Name: `DISCORD_WEBHOOK_URL`
-   - Value: Your Discord webhook URL
+   - Add:
+     - Name: `KOTLIN_WEBHOOK_URL` | Value: Your Kotlin Discord webhook
+     - Name: `ANDROID_WEBHOOK_URL` | Value: Your Android Discord webhook
 
-2. **Workflow runs automatically**
+2. **Deduplication Caching**
+   - GitHub Actions cache persists dedup files between runs
+   - Prevents duplicate messages across 6-hour scheduled runs
+   - See DEDUPLICATION_GUIDE.md for full details
+
+3. **Workflow runs automatically**
    - Schedule: Every 6 hours (0, 6, 12, 18 UTC)
    - Manual trigger: Go to Actions → RSS Feed Aggregator → Run workflow
 
@@ -134,36 +142,59 @@ Tracked Total: 156
 
 ### Deduplication
 
-Sent entries are tracked in `sent_entries.json`:
+Sent entries are tracked separately per feed type:
+- **`sent_entries_kotlin.json`** - Kotlin Blog entries (up to 1000)
+- **`sent_entries_android.json`** - Android Developers entries (up to 1000)
+
+Each file format:
 ```json
 [
   {
     "link": "https://blog.jetbrains.com/kotlin/...",
-    "sentAt": "2024-04-04T10:30:00Z",
-    "title": "Kotlin 1.9.20 Released"
+    "sentAt": "2026-04-04T10:30:00Z",
+    "title": "Kotlin 2.0 Released"
   }
 ]
 ```
 
-The log keeps the last 1000 entries for performance.
+**Important**: These files are NOT committed to git. They're:
+- Generated at runtime
+- Cached by GitHub Actions (between scheduled runs)
+- Automatically managed by the application
+
+Add to `.gitignore`:
+```
+sent_entries_*.json
+sent_entries_kotlin.json
+sent_entries_android.json
+```
 
 ### Discord Output
 
-Entries appear as rich embeds:
+Entries appear as rich embeds with priority-based coloring:
 
 ```
-📰 New Updates (3 items)
+📰 Kotlin Updates (2 items)
 
-[Kotlin Blog]
-Title: Kotlin 2.0 Released
+🔥 [HIGH] Kotlin 2.0 Released
 Link: https://blog.jetbrains.com/kotlin/...
-Published: 2024-04-03 15:30:00
-#kotlin
+Published: 2026-04-03 15:30:00
+Source: Kotlin Blog
+
+⚡ [MEDIUM] Beta 3.0 Available
+Link: https://blog.jetbrains.com/kotlin/...
+Published: 2026-04-02 10:00:00
+Source: Kotlin Blog
 ```
 
-Colors are source-specific:
-- 🟣 Kotlin Blog (purple: #7F52FF)
-- 🟢 Android Developers (green: #3DDC84)
+**Priority Levels & Colors:**
+- 🔥 **HIGH** (Soft Orange #FFB347) - releases, stable, breaking changes
+- ⚡ **MEDIUM** (Blue #4A90E2) - beta, preview, milestone
+- 🌿 **LOW** (Soft Green #7FFF7F) - everything else
+
+**Multi-Channel Routing:**
+- #kotlin channel ← Kotlin Blog entries
+- #android channel ← Android Developers entries
 
 ## Code Quality
 
@@ -258,15 +289,22 @@ Run tests:
 
 ### Duplicate entries showing
 
-1. **Check `sent_entries.json` exists**
+1. **Check dedup files exist**
    ```bash
-   ls -la sent_entries.json
+   ls -la sent_entries_*.json
    ```
 
-2. **Clear duplicate history** (optional)
+2. **For GitHub Actions:**
+   - Check that cache is enabled in workflow
+   - Cache auto-expires after 7 days of non-use
+   - If expired, manually trigger workflow to rebuild cache
+
+3. **Clear duplicate history locally** (optional)
    ```bash
-   rm sent_entries.json
+   rm sent_entries_*.json
    ```
+
+See DEDUPLICATION_GUIDE.md for comprehensive troubleshooting.
 
 ## Extending the Bot
 
