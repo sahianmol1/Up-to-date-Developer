@@ -555,9 +555,62 @@ export FILTER_HOURS=720  # 30 days
 3. Restart app (reload files on init)
 4. Check logs for "Loaded X previously sent entries"
 
+**For GitHub Actions**: 
+- Verify cache is being restored: Check workflow run logs
+- Cache expires after 7 days of no use - manually trigger workflow if idle
+- See `DEDUPLICATION_GUIDE.md` for full troubleshooting
+
 ---
 
-## 8. Making a Safe Change: Checklist
+## 8. GitHub Actions & Deduplication (CRITICAL)
+
+### Why Caching is Essential
+
+GitHub Actions runs on a schedule. Each run:
+1. Checks out fresh repo
+2. `sent_entries_*.json` files don't exist (not committed to git)
+3. App sends all new entries to Discord
+4. Files are created locally but lost after run ends
+5. Next run: Files don't exist → Sends same entries again (duplicates)
+
+**Solution**: Cache persists dedup files between runs:
+
+```yaml
+- name: Cache deduplication files
+  uses: actions/cache@v3
+  with:
+    path: sent_entries_*.json
+    key: rss-dedup-cache
+    restore-keys: |
+      rss-dedup-cache
+```
+
+### Workflow Configuration
+
+**See `.github/workflows/rss-aggregator.yml`:**
+- ✅ Cache step is included
+- ✅ `FILTER_HOURS=24` (optimal for 6-hour runs)
+- ✅ Secrets used for webhook URLs (not hardcoded)
+- ✅ Weekly log retention on failures
+
+**Setup required in GitHub UI:**
+1. Go to **Settings → Secrets and variables → Actions**
+2. Add secret `KOTLIN_WEBHOOK_URL`
+3. Add secret `ANDROID_WEBHOOK_URL`
+
+⚠️ **Never commit webhook URLs to git!**
+
+### Full Reference
+
+See `DEDUPLICATION_GUIDE.md` for complete information:
+- How cache works
+- Scheduling tuning
+- Troubleshooting
+- Performance notes
+
+---
+
+## 9. Making a Safe Change: Checklist
 
 **BEFORE starting**:
 - [ ] Understand current behavior (read relevant code)
@@ -592,7 +645,7 @@ Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
 
 ---
 
-## 9. Quick Reference: File Modification Guide
+## 10. Quick Reference: File Modification Guide
 
 | Feature | File | Method | Difficulty |
 |---------|------|--------|------------|
@@ -606,7 +659,7 @@ Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
 
 ---
 
-## 10. Final Notes
+## 11. Final Notes
 
 **Respect the Design**: This project uses clean architecture intentionally. Don't "optimize" by mixing layers - the current structure is already optimal.
 

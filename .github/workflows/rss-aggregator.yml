@@ -22,13 +22,22 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
       
+      - name: Cache deduplication files
+        uses: actions/cache@v3
+        with:
+          path: sent_entries_*.json
+          key: rss-dedup-cache
+          restore-keys: |
+            rss-dedup-cache
+      
       - name: Build project
         run: ./gradlew build --no-daemon
       
       - name: Run RSS Feed Aggregator
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          FILTER_HOURS: 6
+          KOTLIN_WEBHOOK_URL: ${{ secrets.KOTLIN_WEBHOOK_URL }}
+          ANDROID_WEBHOOK_URL: ${{ secrets.ANDROID_WEBHOOK_URL }}
+          FILTER_HOURS: 24
           KEYWORDS: "Kotlin,Compose,Android,Coroutine,KMP"
         run: ./gradlew run --no-daemon --args=""
       
@@ -39,3 +48,4 @@ jobs:
           name: logs
           path: logs/
           retention-days: 7
+
