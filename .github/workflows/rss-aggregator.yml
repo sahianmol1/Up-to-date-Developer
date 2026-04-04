@@ -25,10 +25,12 @@ jobs:
       - name: Cache deduplication files
         uses: actions/cache@v3
         with:
-          path: sent_entries_*.json
-          key: rss-dedup-cache
+          path: |
+            sent_entries_kotlin.json
+            sent_entries_android.json
+          key: rss-dedup-cache-${{ github.run_id }}
           restore-keys: |
-            rss-dedup-cache
+            rss-dedup-cache-
       
       - name: Build project
         run: ./gradlew build --no-daemon
