@@ -14,6 +14,7 @@ class RssFeedAggregatorService(
     private val filter: RssEntryFilter,
     private val duplicateDetector: DuplicateDetector,
     private val priorityCalculator: PriorityCalculator,
+    private val updateTypeCalculator: UpdateTypeCalculator,
     private val discordClient: DiscordWebhookClient
 ) {
     private val logger = LoggerFactory.getLogger(RssFeedAggregatorService::class.java)
@@ -21,7 +22,7 @@ class RssFeedAggregatorService(
     /**
      * Executes the full aggregation pipeline:
      * 1. Fetch entries from all feeds
-     * 2. Calculate priority based on content
+     * 2. Calculate priority and update type based on content
      * 3. Filter by time window and keywords
      * 4. Remove duplicates
      * 5. Send to Discord (routed by feed type)
@@ -37,12 +38,13 @@ class RssFeedAggregatorService(
         val totalFetched = allEntries.size
         logger.info("Fetched $totalFetched total entries")
 
-        // Calculate priority for all entries
+        // Calculate priority and update type for all entries
         val withPriority = priorityCalculator.calculateAll(allEntries)
-        logger.debug("Calculated priority for all entries")
+        val withUpdateType = updateTypeCalculator.calculateAll(withPriority)
+        logger.debug("Calculated priority and update type for all entries")
 
         // Filter by time window and keywords
-        val filtered = filter.filter(withPriority, keywords)
+        val filtered = filter.filter(withUpdateType, keywords)
         logger.info("Filtered to ${filtered.size} entries after time and keyword filtering")
 
         // Remove duplicates

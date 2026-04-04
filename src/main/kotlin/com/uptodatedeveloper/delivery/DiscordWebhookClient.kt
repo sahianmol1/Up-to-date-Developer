@@ -192,9 +192,10 @@ class DiscordWebhookClient(
             .replace("&nbsp;", " ")
             .replace("<[^>]+>".toRegex(), "")  // Remove HTML tags
 
-        // Build title with priority emoji and label
+        // Build title with priority emoji and update type
+        // Format: "🔥 [Release] Title"
         // Discord title limit: 256 characters
-        val priorityLabel = "${entry.priority.emoji} ${entry.priority.displayName}"
+        val priorityLabel = "${entry.priority.emoji} [${entry.updateType.displayName}]"
         var titleWithPriority = "$priorityLabel $cleanTitle"
         if (titleWithPriority.length > 256) {
             titleWithPriority = titleWithPriority.take(253) + "..."
@@ -252,9 +253,10 @@ class DiscordWebhookClient(
             url = url,
             color = entry.priority.color,
             fields = listOf(
+                DiscordField("Type", entry.updateType.displayName, inline = true),
+                DiscordField("Priority", entry.priority.displayName, inline = true),
                 DiscordField("Source", source, inline = true),
                 DiscordField("Published", formattedDateField, inline = true),
-                DiscordField("Priority", entry.priority.displayName, inline = true),
                 DiscordField("Author", author, inline = true)
             ),
             timestamp = isoDate

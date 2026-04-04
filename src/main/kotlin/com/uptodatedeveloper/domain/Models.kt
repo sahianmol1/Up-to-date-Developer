@@ -12,16 +12,45 @@ enum class FeedType(val displayName: String) {
 
 /**
  * Priority enum for classifying RSS entries
- * Uses priority levels with developer-friendly colors
+ * Uses priority levels with distinct colors
  */
 enum class Priority(
     val displayName: String,
     val emoji: String,
     val color: Int
 ) {
-    HIGH("High", "🔥", 0xFFB347),      // Soft orange (not harsh red)
-    MEDIUM("Medium", "⚡", 0x4A90E2),  // Blue
-    LOW("Low", "🌿", 0x7FFF7F)         // Green
+    HIGH("High", "🔥", 0xFF0000),      // Red
+    MEDIUM("Medium", "⚡", 0xFFFF00),  // Yellow
+    LOW("Low", "🌿", 0x00FF00)         // Green
+}
+
+/**
+ * Update type enum for categorizing RSS entry content
+ */
+enum class UpdateType(
+    val displayName: String,
+    val keywords: List<String>
+) {
+    RELEASE("Release", listOf("release", "shipped", "released", "out now")),
+    FEATURE("Feature", listOf("feature", "new", "introduces", "support", "added")),
+    BUG_FIX("Bug Fix", listOf("bug fix", "fixed", "bugfix", "issue", "fix", "patch")),
+    BREAKING_CHANGE("Breaking Change", listOf("breaking", "deprecat", "removed")),
+    BLOG("Blog", listOf("blog", "article", "post", "story", "guide", "tutorial", "how-to", "walkthrough", "deep dive", "discussion")),
+    BETA("Beta", listOf("beta", "preview", "alpha", "rc", "release candidate")),
+    PERFORMANCE("Performance", listOf("performance", "improve", "optimiz", "faster", "speed")),
+    SECURITY("Security", listOf("security", "vulnerability", "cve", "exploit")),
+    NEWS("News", listOf("announce", "announcement", "news", "update"));
+
+    companion object {
+        fun detect(content: String): UpdateType {
+            val lowercase = content.lowercase()
+            // Return first matching type (order matters!)
+            // BLOG is checked before NEWS to avoid false positives
+            return values().firstOrNull { updateType ->
+                updateType.keywords.any { keyword -> lowercase.contains(keyword) }
+            } ?: NEWS  // Default to NEWS if no match
+        }
+    }
 }
 
 /**
@@ -35,7 +64,8 @@ data class RssEntry(
     val source: String = "",
     val author: String? = null,
     val feedType: FeedType = FeedType.KOTLIN,
-    val priority: Priority = Priority.LOW
+    val priority: Priority = Priority.LOW,
+    val updateType: UpdateType = UpdateType.NEWS
 )
 
 /**

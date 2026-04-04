@@ -7,12 +7,13 @@ import com.uptodatedeveloper.service.DuplicateDetector
 import com.uptodatedeveloper.service.PriorityCalculator
 import com.uptodatedeveloper.service.RssEntryFilter
 import com.uptodatedeveloper.service.RssFeedAggregatorService
+import com.uptodatedeveloper.service.UpdateTypeCalculator
 import org.slf4j.LoggerFactory
 
 private val logger = LoggerFactory.getLogger("com.uptodatedeveloper.MainKt")
 
 fun main() {
-    logger.info("Starting UpToDate Developer RSS Feed Aggregator Bot v4.0")
+    logger.info("Starting UpToDate Developer RSS Feed Aggregator Bot v4.1")
 
     // Log configuration
     AppConfig.logSummary()
@@ -31,6 +32,7 @@ fun main() {
         val filter = RssEntryFilter(hoursWindow = AppConfig.filterHours)
         val duplicateDetector = DuplicateDetector()
         val priorityCalculator = PriorityCalculator()
+        val updateTypeCalculator = UpdateTypeCalculator()
         val discordClient = DiscordWebhookClient()
 
         // Create aggregator service
@@ -39,6 +41,7 @@ fun main() {
             filter = filter,
             duplicateDetector = duplicateDetector,
             priorityCalculator = priorityCalculator,
+            updateTypeCalculator = updateTypeCalculator,
             discordClient = discordClient
         )
 
