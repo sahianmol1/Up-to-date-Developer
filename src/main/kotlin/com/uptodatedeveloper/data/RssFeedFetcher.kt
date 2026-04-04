@@ -3,6 +3,7 @@ package com.uptodatedeveloper.data
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.XmlReader
 import com.uptodatedeveloper.domain.FeedConfig
+import com.uptodatedeveloper.domain.Priority
 import com.uptodatedeveloper.domain.RssEntry
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -49,7 +50,9 @@ class RssFeedFetcher(
                         publishedDate = entry.publishedDate?.toInstant() ?: Instant.now(),
                         description = entry.description?.value ?: "",
                         source = feedConfig.name,
-                        author = entry.author
+                        author = entry.author,
+                        feedType = feedConfig.feedType,
+                        priority = Priority.LOW  // Will be calculated later
                     )
                 }
 

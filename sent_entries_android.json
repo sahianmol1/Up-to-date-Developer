@@ -1,0 +1,89 @@
+[ {
+  "link" : "https://android-developers.googleblog.com/2026/04/android-studio-supports-gemma-4-local.html",
+  "sentAt" : "2026-04-04T11:39:45.530150Z",
+  "title" : "Android Studio supports Gemma 4: our most capable local model for agentic coding"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/04/AI-Core-Developer-Preview.html",
+  "sentAt" : "2026-04-04T11:39:45.530165Z",
+  "title" : "Announcing Gemma 4 in the AICore Developer Preview"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/04/gemma-4-new-standard-for-local-agentic-intelligence.html",
+  "sentAt" : "2026-04-04T11:39:45.530171Z",
+  "title" : "Gemma 4: The new standard for local agentic intelligence on Android"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/04/Increase-Guidance-and-Control-over-Agent-Mode-with-Android-Studio-Panda-3.html",
+  "sentAt" : "2026-04-04T11:39:45.530175Z",
+  "title" : "Increase Guidance and Control over Agent Mode with Android Studio Panda 3 "
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/04/get-your-wear-os-apps-ready-for-64-bit-requirement.html",
+  "sentAt" : "2026-04-04T11:39:45.530179Z",
+  "title" : "Get your Wear OS apps ready for the 64-bit requirement"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/media3-110-is-out.html",
+  "sentAt" : "2026-04-04T11:39:45.530183Z",
+  "title" : "Media3 1.10 is out"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/monzo-boosts-performance-metrics-by-up-to-35-percent.html",
+  "sentAt" : "2026-04-04T11:39:45.530187Z",
+  "title" : "Monzo boosts performance metrics by up to 35% with a simple R8 update"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html",
+  "sentAt" : "2026-04-04T11:39:45.530191Z",
+  "title" : "Android developer verification: Rolling out to all developers on Play Console and Android Developer Console"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/location-privacy.html",
+  "sentAt" : "2026-04-04T11:39:45.530195Z",
+  "title" : "Redefining Location Privacy: New Tools and Improvements for Android 17"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/the-third-beta-of-android-17.html",
+  "sentAt" : "2026-04-04T11:39:45.530198Z",
+  "title" : "The Third Beta of Android 17"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/meet-class-of-2026-for-google-play-apps.html",
+  "sentAt" : "2026-04-04T11:39:45.530202Z",
+  "title" : "Meet the class of 2026 for the Google Play Apps Accelerator"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/contact-picker-privacy-first-contact.html",
+  "sentAt" : "2026-04-04T11:39:45.530206Z",
+  "title" : "Contact Picker: Privacy-First Contact Sharing"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/Beyond-Infotainment-Extending-Android-Automotive-OS-for-Software-defined-Vehicles.html",
+  "sentAt" : "2026-04-04T11:39:45.530209Z",
+  "title" : "Beyond Infotainment: Extending Android Automotive OS for Software-defined Vehicles"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/android-developer-verification.html",
+  "sentAt" : "2026-04-04T11:39:45.530213Z",
+  "title" : "Android developer verification: Balancing openness and choice with safety"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/Get-inspired-and-take-your-apps-to-desktop.html",
+  "sentAt" : "2026-04-04T11:39:45.530217Z",
+  "title" : "Get inspired and take your apps to desktop"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/room-30-modernizing-room.html",
+  "sentAt" : "2026-04-04T11:39:45.530220Z",
+  "title" : "Room 3.0 - Modernizing the Room"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/tiktok-reduces-code-size-by-58.html",
+  "sentAt" : "2026-04-04T11:39:45.530224Z",
+  "title" : "TikTok reduces code size by 58% and improves app performance for new features with Jetpack Compose"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/level-up-your-game.html",
+  "sentAt" : "2026-04-04T11:39:45.530228Z",
+  "title" : "Level Up: Test Sidekick and prepare for upcoming program milestones"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/building-a-bigger-stage.html",
+  "sentAt" : "2026-04-04T11:39:45.530231Z",
+  "title" : "Expanding our stage for PC and paid titles "
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/BoostingAndroid PerformanceIntroducingAutoFDO.html",
+  "sentAt" : "2026-04-04T11:39:45.530235Z",
+  "title" : "Boosting Android Performance: Introducing AutoFDO for the Kernel"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/instagram-and-facebook-deliver-instant.html",
+  "sentAt" : "2026-04-04T11:39:45.530238Z",
+  "title" : "Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager"
+}, {
+  "link" : "https://android-developers.googleblog.com/2026/03/elevating-ai-assisted-androi.html",
+  "sentAt" : "2026-04-04T11:39:45.530242Z",
+  "title" : "Elevating AI-assisted Android development and improving LLMs with Android Bench"
+} ]

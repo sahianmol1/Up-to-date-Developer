@@ -13,6 +13,7 @@ class RssFeedAggregatorService(
     private val fetcher: RssFeedFetcher,
     private val filter: RssEntryFilter,
     private val duplicateDetector: DuplicateDetector,
+    private val priorityCalculator: PriorityCalculator,
     private val discordClient: DiscordWebhookClient
 ) {
     private val logger = LoggerFactory.getLogger(RssFeedAggregatorService::class.java)
@@ -20,10 +21,11 @@ class RssFeedAggregatorService(
     /**
      * Executes the full aggregation pipeline:
      * 1. Fetch entries from all feeds
-     * 2. Filter by time window and keywords
-     * 3. Remove duplicates
-     * 4. Send to Discord
-     * 5. Log results
+     * 2. Calculate priority based on content
+     * 3. Filter by time window and keywords
+     * 4. Remove duplicates
+     * 5. Send to Discord (routed by feed type)
+     * 6. Log results
      */
     fun aggregate(
         feeds: List<FeedConfig>,
@@ -35,8 +37,12 @@ class RssFeedAggregatorService(
         val totalFetched = allEntries.size
         logger.info("Fetched $totalFetched total entries")
 
+        // Calculate priority for all entries
+        val withPriority = priorityCalculator.calculateAll(allEntries)
+        logger.debug("Calculated priority for all entries")
+
         // Filter by time window and keywords
-        val filtered = filter.filter(allEntries, keywords)
+        val filtered = filter.filter(withPriority, keywords)
         logger.info("Filtered to ${filtered.size} entries after time and keyword filtering")
 
         // Remove duplicates
@@ -44,28 +50,28 @@ class RssFeedAggregatorService(
         val newCount = newEntries.size
         logger.info("Found $newCount new entries (after deduplication)")
 
-        // Send to Discord
+        // Send to Discord (routing handled by client)
         var sentCount = 0
         val sendErrors = mutableListOf<String>()
 
         if (newEntries.isNotEmpty()) {
-            // Group entries by source for better formatting
-            val groupedBySource = newEntries.groupBy { it.source }
+            // Get tags for entries
+            val feedTagMap = feeds.associateBy { it.name }
+            val allTags = newEntries.flatMap { entry ->
+                feedTagMap[entry.source]?.tags ?: emptyList()
+            }.distinct()
 
-            groupedBySource.forEach { (source, entries) ->
-                val sourceTags = feeds.find { it.name == source }?.tags ?: emptyList()
-                discordClient.sendEntries(entries, sourceTags)
-                    .onSuccess {
-                        sentCount += entries.size
-                        duplicateDetector.markAsSent(entries)
-                        logger.info("Sent ${entries.size} entries from $source to Discord")
-                    }
-                    .onFailure { error ->
-                        val errorMsg = "Failed to send $source entries: ${error.message}"
-                        sendErrors.add(errorMsg)
-                        logger.error(errorMsg)
-                    }
-            }
+            discordClient.sendEntries(newEntries, allTags)
+                .onSuccess {
+                    sentCount = newEntries.size
+                    duplicateDetector.markAsSent(newEntries)
+                    logger.info("Sent $sentCount entries to Discord")
+                }
+                .onFailure { error ->
+                    val errorMsg = "Failed to send entries: ${error.message}"
+                    sendErrors.add(errorMsg)
+                    logger.error(errorMsg)
+                }
         } else {
             logger.info("No new entries to send")
         }
@@ -98,7 +104,7 @@ class RssFeedAggregatorService(
         logger.info("Total Fetched: ${result.totalFetched}")
         logger.info("New Entries: ${result.newEntries}")
         logger.info("Sent to Discord: ${result.sent}")
-        logger.info("Tracked Total: ${duplicateDetector.getTrackedCount()}")
+        logger.info("Tracked Total (All Feeds): ${duplicateDetector.getTotalTrackedCount()}")
         if (result.errors.isNotEmpty()) {
             logger.warn("Errors (${result.errors.size}):")
             result.errors.forEach { logger.warn("  - $it") }
@@ -106,3 +112,4 @@ class RssFeedAggregatorService(
         logger.info("===========================")
     }
 }
+

@@ -4,16 +4,19 @@
 
 A production-quality **RSS Feed Aggregator Bot** in Kotlin that:
 1. Fetches updates from multiple RSS feeds (Kotlin Blog, Android Developers)
-2. Filters entries by time window (24 hours) and keywords (Compose, Android, etc.)
-3. Prevents duplicate messages using persistent JSON tracking
-4. Sends formatted, color-coded messages to Discord via webhook
-5. Runs automatically every 6 hours via GitHub Actions
-6. Handles errors gracefully without crashing
+2. Categorizes entries by **update type** (Release, Feature, Breaking, Experimental, Fix, News)
+3. Filters entries by time window (24 hours) and keywords (Compose, Android, etc.)
+4. Prevents duplicate messages using persistent JSON tracking
+5. Routes messages to **separate Discord channels** via different webhooks
+6. Sends **rich Discord embeds** with soft, developer-friendly colors and type emojis
+7. Runs automatically every 6 hours via GitHub Actions
+8. Handles errors gracefully without crashing
 
 ## Project Statistics
 
 - **Language**: Kotlin 2.2.20 (JVM)
-- **Files**: 9 Kotlin files (741 lines of code)
+- **Files**: 10 Kotlin files + 1 Service file (810+ lines of code)
+- **Version**: v3.0 (type-based tagging with soft colors)
 - **Dependencies**: OkHttp, Rome, Jackson, SLF4J, Logback
 - **Build Time**: ~2 seconds
 - **JAR Size**: 46 KB (includes all dependencies)
@@ -24,28 +27,29 @@ A production-quality **RSS Feed Aggregator Bot** in Kotlin that:
 UpToDateDeveloper/
 ├── src/main/kotlin/com/uptodatedeveloper/
 │   ├── config/
-│   │   └── AppConfig.kt                (Configuration management)
+│   │   └── AppConfig.kt                       (Configuration management)
 │   ├── data/
-│   │   └── RssFeedFetcher.kt          (RSS fetching & parsing)
+│   │   └── RssFeedFetcher.kt                  (RSS fetching & parsing)
 │   ├── delivery/
-│   │   └── DiscordWebhookClient.kt    (Discord integration)
+│   │   └── DiscordWebhookClient.kt            (Discord integration)
 │   ├── domain/
-│   │   └── Models.kt                   (Data classes)
+│   │   └── Models.kt                          (FeedType, UpdateTag, RssEntry, etc.)
 │   ├── service/
-│   │   ├── RssEntryFilter.kt          (Filtering logic)
-│   │   ├── DuplicateDetector.kt       (Deduplication with JSON)
-│   │   └── RssFeedAggregatorService.kt (Orchestration)
-│   └── Main.kt                         (Entry point)
+│   │   ├── RssEntryFilter.kt                  (Filtering logic)
+│   │   ├── DuplicateDetector.kt               (Deduplication with JSON)
+│   │   ├── UpdateTagCalculator.kt             (Tag detection engine)
+│   │   └── RssFeedAggregatorService.kt        (Orchestration)
+│   └── Main.kt                                 (Entry point)
 ├── src/main/resources/
-│   └── logback.xml                     (Logging config)
+│   └── logback.xml                            (Logging config)
 ├── .github/workflows/
-│   └── rss-aggregator.yml             (GitHub Actions schedule)
-├── build.gradle.kts                    (Gradle config)
+│   └── rss-aggregator.yml                    (GitHub Actions schedule)
+├── build.gradle.kts                           (Gradle config)
 ├── settings.gradle.kts
-├── README.md                           (Full documentation)
-├── QUICKSTART.md                       (5-minute setup)
-├── ARCHITECTURE.md                     (Design & patterns)
-└── .env.example                        (Configuration template)
+├── README.md                                  (Full documentation)
+├── QUICKSTART.md                              (5-minute setup)
+├── ARCHITECTURE.md                            (Design & patterns)
+└── .env.example                               (Configuration template)
 ```
 
 ## Key Features
