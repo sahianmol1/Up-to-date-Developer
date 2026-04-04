@@ -175,12 +175,10 @@ class DiscordWebhookClient(
      */
     private fun createEmbed(entry: RssEntry, tags: List<String> = emptyList()): DiscordEmbed {
         val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-        val isoFormatter = DateTimeFormatter.ISO_INSTANT
+            .withZone(java.time.ZoneId.systemDefault())
         
-        val formattedDate = dateFormatter.format(
-            entry.publishedDate.atZone(java.time.ZoneId.systemDefault())
-        )
-        val isoDate = isoFormatter.format(entry.publishedDate)
+        val formattedDate = dateFormatter.format(entry.publishedDate)
+        val isoDate = entry.publishedDate.toString()
 
         // Clean and sanitize title - remove HTML entities
         val cleanTitle = entry.title
