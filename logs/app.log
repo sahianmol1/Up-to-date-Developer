@@ -1322,3 +1322,457 @@ java.time.temporal.UnsupportedTemporalTypeException: Unsupported field: YearOfEr
 2026-04-04 17:09:58 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 30
 2026-04-04 17:09:58 [INFO ] RssFeedAggregatorService - ===========================
 2026-04-04 17:09:58 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 17:31:48 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot v4.0
+2026-04-04 17:31:48 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 17:31:48 [INFO ] AppConfig - Kotlin Webhook: Configured
+2026-04-04 17:31:48 [INFO ] AppConfig - Android Webhook: Configured
+2026-04-04 17:31:48 [INFO ] AppConfig - Filter Hours: 24
+2026-04-04 17:31:48 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 17:31:48 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:31:48 [INFO ] AppConfig - Feeds: Kotlin Blog (Kotlin), Android Developers (Android)
+2026-04-04 17:31:48 [INFO ] AppConfig - ==================================
+2026-04-04 17:31:48 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:31:48 [ERROR] DuplicateDetector - Error loading sent entries log for Kotlin
+com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:4990)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4892)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3711)
+	at com.uptodatedeveloper.service.DuplicateDetector.loadSentEntries(DuplicateDetector.kt:80)
+	at com.uptodatedeveloper.service.DuplicateDetector.<init>(DuplicateDetector.kt:33)
+	at com.uptodatedeveloper.service.DuplicateDetector.<init>(DuplicateDetector.kt:20)
+	at com.uptodatedeveloper.MainKt.main(Main.kt:32)
+	at com.uptodatedeveloper.MainKt.main(Main.kt)
+2026-04-04 17:31:48 [ERROR] DuplicateDetector - Error loading sent entries log for Android
+com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:4990)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4892)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3711)
+	at com.uptodatedeveloper.service.DuplicateDetector.loadSentEntries(DuplicateDetector.kt:80)
+	at com.uptodatedeveloper.service.DuplicateDetector.<init>(DuplicateDetector.kt:33)
+	at com.uptodatedeveloper.service.DuplicateDetector.<init>(DuplicateDetector.kt:20)
+	at com.uptodatedeveloper.MainKt.main(Main.kt:32)
+	at com.uptodatedeveloper.MainKt.main(Main.kt)
+2026-04-04 17:31:48 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:31:48 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 17:31:48 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 17:31:50 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 17:31:50 [DEBUG] RssFeedAggregatorService - Calculated priority for all entries
+2026-04-04 17:31:50 [DEBUG] RssEntryFilter - Filtered 37 entries to 0 within last 24 hours
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - Filtered to 0 entries after time and keyword filtering
+2026-04-04 17:31:50 [DEBUG] DuplicateDetector - Detected 0 duplicates from 0 entries
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - Found 0 new entries (after deduplication)
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - No new entries to send
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - New Entries: 0
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - Sent to Discord: 0
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 0
+2026-04-04 17:31:50 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 17:31:50 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 17:35:14 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot v4.0
+2026-04-04 17:35:14 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 17:35:14 [INFO ] AppConfig - Kotlin Webhook: Configured
+2026-04-04 17:35:14 [INFO ] AppConfig - Android Webhook: Configured
+2026-04-04 17:35:14 [INFO ] AppConfig - Filter Hours: 24
+2026-04-04 17:35:14 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 17:35:14 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:35:14 [INFO ] AppConfig - Feeds: Kotlin Blog (Kotlin), Android Developers (Android)
+2026-04-04 17:35:14 [INFO ] AppConfig - ==================================
+2026-04-04 17:35:14 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:35:15 [INFO ] DuplicateDetector - Sent entries log is empty for Kotlin. Starting fresh.
+2026-04-04 17:35:15 [INFO ] DuplicateDetector - Sent entries log is empty for Android. Starting fresh.
+2026-04-04 17:35:15 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:35:15 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 17:35:15 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 17:35:17 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 17:35:17 [DEBUG] RssFeedAggregatorService - Calculated priority for all entries
+2026-04-04 17:35:17 [DEBUG] RssEntryFilter - Filtered 37 entries to 0 within last 24 hours
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - Filtered to 0 entries after time and keyword filtering
+2026-04-04 17:35:17 [DEBUG] DuplicateDetector - Detected 0 duplicates from 0 entries
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - Found 0 new entries (after deduplication)
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - No new entries to send
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - New Entries: 0
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - Sent to Discord: 0
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 0
+2026-04-04 17:35:17 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 17:35:17 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 17:37:08 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot v4.0
+2026-04-04 17:37:08 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 17:37:08 [INFO ] AppConfig - Kotlin Webhook: Configured
+2026-04-04 17:37:08 [INFO ] AppConfig - Android Webhook: Configured
+2026-04-04 17:37:08 [INFO ] AppConfig - Filter Hours: 24
+2026-04-04 17:37:08 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 17:37:08 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:37:08 [INFO ] AppConfig - Feeds: Kotlin Blog (Kotlin), Android Developers (Android)
+2026-04-04 17:37:08 [INFO ] AppConfig - ==================================
+2026-04-04 17:37:08 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:37:08 [INFO ] DuplicateDetector - Sent entries log is empty for Kotlin. Starting fresh.
+2026-04-04 17:37:08 [INFO ] DuplicateDetector - Sent entries log is empty for Android. Starting fresh.
+2026-04-04 17:37:08 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:37:08 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 17:37:08 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 17:37:10 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 17:37:10 [DEBUG] RssFeedAggregatorService - Calculated priority for all entries
+2026-04-04 17:37:10 [DEBUG] RssEntryFilter - Filtered 37 entries to 0 within last 24 hours
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - Filtered to 0 entries after time and keyword filtering
+2026-04-04 17:37:10 [DEBUG] DuplicateDetector - Detected 0 duplicates from 0 entries
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - Found 0 new entries (after deduplication)
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - No new entries to send
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - New Entries: 0
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - Sent to Discord: 0
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 0
+2026-04-04 17:37:10 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 17:37:10 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 17:37:52 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot v4.0
+2026-04-04 17:37:52 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 17:37:52 [INFO ] AppConfig - Kotlin Webhook: Configured
+2026-04-04 17:37:52 [INFO ] AppConfig - Android Webhook: Configured
+2026-04-04 17:37:52 [INFO ] AppConfig - Filter Hours: 720
+2026-04-04 17:37:52 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 17:37:52 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:37:52 [INFO ] AppConfig - Feeds: Kotlin Blog (Kotlin), Android Developers (Android)
+2026-04-04 17:37:52 [INFO ] AppConfig - ==================================
+2026-04-04 17:37:52 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:37:52 [INFO ] DuplicateDetector - Sent entries log is empty for Kotlin. Starting fresh.
+2026-04-04 17:37:52 [INFO ] DuplicateDetector - Sent entries log is empty for Android. Starting fresh.
+2026-04-04 17:37:52 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:37:52 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 17:37:52 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 17:37:54 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 17:37:54 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 17:37:54 [DEBUG] RssFeedAggregatorService - Calculated priority for all entries
+2026-04-04 17:37:54 [DEBUG] RssEntryFilter - Filtered 37 entries to 30 within last 720 hours
+2026-04-04 17:37:54 [INFO ] RssFeedAggregatorService - Filtered to 30 entries after time and keyword filtering
+2026-04-04 17:37:54 [DEBUG] DuplicateDetector - Detected 0 duplicates from 30 entries
+2026-04-04 17:37:54 [INFO ] RssFeedAggregatorService - Found 30 new entries (after deduplication)
+2026-04-04 17:37:54 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1634B)
+2026-04-04 17:37:54 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 0
+2026-04-04 17:37:55 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1614B)
+2026-04-04 17:37:55 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 1
+2026-04-04 17:37:55 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1588B)
+2026-04-04 17:37:55 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 2
+2026-04-04 17:37:56 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1577B)
+2026-04-04 17:37:56 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 3
+2026-04-04 17:37:56 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1188B)
+2026-04-04 17:37:56 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 0
+2026-04-04 17:37:57 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1263B)
+2026-04-04 17:37:57 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 1
+2026-04-04 17:37:57 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1064B)
+2026-04-04 17:37:57 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 2
+2026-04-04 17:37:58 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1317B)
+2026-04-04 17:37:58 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 3
+2026-04-04 17:37:58 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1098B)
+2026-04-04 17:37:58 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 4
+2026-04-04 17:37:59 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1136B)
+2026-04-04 17:37:59 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 5
+2026-04-04 17:37:59 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1274B)
+2026-04-04 17:37:59 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 6
+2026-04-04 17:38:00 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1065B)
+2026-04-04 17:38:00 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 7
+2026-04-04 17:38:01 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1240B)
+2026-04-04 17:38:01 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 8
+2026-04-04 17:38:01 [ERROR] DiscordWebhookClient - Failed to send Discord message (payload: 1135B, embeds: [0: 🌿 Low Expanding our stage for PC and paid titles , 1: 🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel]): HTTP 400, error: {"embeds": ["1"]}
+2026-04-04 17:38:01 [WARN ] DiscordWebhookClient - Batch 9 failed, attempting to send individually...
+2026-04-04 17:38:01 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (554B)
+2026-04-04 17:38:01 [DEBUG] DiscordWebhookClient - Successfully sent individual embed 0 from batch 9
+2026-04-04 17:38:02 [ERROR] DiscordWebhookClient - Failed to send Discord message (payload: 618B, embeds: [0: 🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel]): HTTP 400, error: {"embeds": ["0"]}
+2026-04-04 17:38:02 [ERROR] DiscordWebhookClient - Individual embed 1 from batch 9 failed: '🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel' - Discord webhook error: 400 - {"embeds": ["0"]}
+2026-04-04 17:38:02 [INFO ] DiscordWebhookClient - Recovered 1/2 embeds from batch 9 by sending individually
+2026-04-04 17:38:02 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1277B)
+2026-04-04 17:38:02 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 10
+2026-04-04 17:38:02 [ERROR] DuplicateDetector - Error saving sent entries for Kotlin
+com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:4990)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4892)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3711)
+	at com.uptodatedeveloper.service.DuplicateDetector.saveSentEntriesByFeedType(DuplicateDetector.kt:109)
+	at com.uptodatedeveloper.service.DuplicateDetector.markAsSent(DuplicateDetector.kt:63)
+	at com.uptodatedeveloper.service.RssFeedAggregatorService.aggregate(RssFeedAggregatorService.kt:67)
+	at com.uptodatedeveloper.MainKt.main(Main.kt:47)
+	at com.uptodatedeveloper.MainKt.main(Main.kt)
+2026-04-04 17:38:02 [ERROR] DuplicateDetector - Error saving sent entries for Android
+com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:4990)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4892)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3711)
+	at com.uptodatedeveloper.service.DuplicateDetector.saveSentEntriesByFeedType(DuplicateDetector.kt:109)
+	at com.uptodatedeveloper.service.DuplicateDetector.markAsSent(DuplicateDetector.kt:63)
+	at com.uptodatedeveloper.service.RssFeedAggregatorService.aggregate(RssFeedAggregatorService.kt:67)
+	at com.uptodatedeveloper.MainKt.main(Main.kt:47)
+	at com.uptodatedeveloper.MainKt.main(Main.kt)
+2026-04-04 17:38:02 [INFO ] RssFeedAggregatorService - Sent 30 entries to Discord
+2026-04-04 17:38:02 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 17:38:02 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 17:38:02 [INFO ] RssFeedAggregatorService - New Entries: 30
+2026-04-04 17:38:02 [INFO ] RssFeedAggregatorService - Sent to Discord: 30
+2026-04-04 17:38:02 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 30
+2026-04-04 17:38:02 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 17:38:02 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 17:39:17 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot v4.0
+2026-04-04 17:39:17 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 17:39:17 [INFO ] AppConfig - Kotlin Webhook: Configured
+2026-04-04 17:39:17 [INFO ] AppConfig - Android Webhook: Configured
+2026-04-04 17:39:17 [INFO ] AppConfig - Filter Hours: 720
+2026-04-04 17:39:17 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 17:39:17 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:39:17 [INFO ] AppConfig - Feeds: Kotlin Blog (Kotlin), Android Developers (Android)
+2026-04-04 17:39:17 [INFO ] AppConfig - ==================================
+2026-04-04 17:39:17 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:39:17 [INFO ] DuplicateDetector - Sent entries log is empty for Kotlin. Starting fresh.
+2026-04-04 17:39:17 [INFO ] DuplicateDetector - Sent entries log is empty for Android. Starting fresh.
+2026-04-04 17:39:17 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:39:17 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 17:39:17 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 17:39:19 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 17:39:19 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 17:39:19 [DEBUG] RssFeedAggregatorService - Calculated priority for all entries
+2026-04-04 17:39:19 [DEBUG] RssEntryFilter - Filtered 37 entries to 30 within last 720 hours
+2026-04-04 17:39:19 [INFO ] RssFeedAggregatorService - Filtered to 30 entries after time and keyword filtering
+2026-04-04 17:39:19 [DEBUG] DuplicateDetector - Detected 0 duplicates from 30 entries
+2026-04-04 17:39:19 [INFO ] RssFeedAggregatorService - Found 30 new entries (after deduplication)
+2026-04-04 17:39:20 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1634B)
+2026-04-04 17:39:20 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 0
+2026-04-04 17:39:20 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1614B)
+2026-04-04 17:39:20 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 1
+2026-04-04 17:39:21 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1588B)
+2026-04-04 17:39:21 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 2
+2026-04-04 17:39:22 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1577B)
+2026-04-04 17:39:22 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 3
+2026-04-04 17:39:22 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1188B)
+2026-04-04 17:39:22 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 0
+2026-04-04 17:39:23 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1263B)
+2026-04-04 17:39:23 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 1
+2026-04-04 17:39:23 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1064B)
+2026-04-04 17:39:23 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 2
+2026-04-04 17:39:24 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1317B)
+2026-04-04 17:39:24 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 3
+2026-04-04 17:39:24 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1098B)
+2026-04-04 17:39:24 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 4
+2026-04-04 17:39:25 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1136B)
+2026-04-04 17:39:25 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 5
+2026-04-04 17:39:25 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1274B)
+2026-04-04 17:39:25 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 6
+2026-04-04 17:39:26 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1065B)
+2026-04-04 17:39:26 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 7
+2026-04-04 17:39:26 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1240B)
+2026-04-04 17:39:26 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 8
+2026-04-04 17:39:27 [ERROR] DiscordWebhookClient - Failed to send Discord message (payload: 1135B, embeds: [0: 🌿 Low Expanding our stage for PC and paid titles , 1: 🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel]): HTTP 400, error: {"embeds": ["1"]}
+2026-04-04 17:39:27 [WARN ] DiscordWebhookClient - Batch 9 failed, attempting to send individually...
+2026-04-04 17:39:27 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (554B)
+2026-04-04 17:39:27 [DEBUG] DiscordWebhookClient - Successfully sent individual embed 0 from batch 9
+2026-04-04 17:39:27 [ERROR] DiscordWebhookClient - Failed to send Discord message (payload: 618B, embeds: [0: 🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel]): HTTP 400, error: {"embeds": ["0"]}
+2026-04-04 17:39:27 [ERROR] DiscordWebhookClient - Individual embed 1 from batch 9 failed: '🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel' - Discord webhook error: 400 - {"embeds": ["0"]}
+2026-04-04 17:39:27 [INFO ] DiscordWebhookClient - Recovered 1/2 embeds from batch 9 by sending individually
+2026-04-04 17:39:28 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1277B)
+2026-04-04 17:39:28 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 10
+2026-04-04 17:39:28 [ERROR] DuplicateDetector - Error saving sent entries for Kotlin
+com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:4990)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4892)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3711)
+	at com.uptodatedeveloper.service.DuplicateDetector.saveSentEntriesByFeedType(DuplicateDetector.kt:109)
+	at com.uptodatedeveloper.service.DuplicateDetector.markAsSent(DuplicateDetector.kt:63)
+	at com.uptodatedeveloper.service.RssFeedAggregatorService.aggregate(RssFeedAggregatorService.kt:67)
+	at com.uptodatedeveloper.MainKt.main(Main.kt:47)
+	at com.uptodatedeveloper.MainKt.main(Main.kt)
+2026-04-04 17:39:28 [ERROR] DuplicateDetector - Error saving sent entries for Android
+com.fasterxml.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:4990)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4892)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3711)
+	at com.uptodatedeveloper.service.DuplicateDetector.saveSentEntriesByFeedType(DuplicateDetector.kt:109)
+	at com.uptodatedeveloper.service.DuplicateDetector.markAsSent(DuplicateDetector.kt:63)
+	at com.uptodatedeveloper.service.RssFeedAggregatorService.aggregate(RssFeedAggregatorService.kt:67)
+	at com.uptodatedeveloper.MainKt.main(Main.kt:47)
+	at com.uptodatedeveloper.MainKt.main(Main.kt)
+2026-04-04 17:39:28 [INFO ] RssFeedAggregatorService - Sent 30 entries to Discord
+2026-04-04 17:39:28 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 17:39:28 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 17:39:28 [INFO ] RssFeedAggregatorService - New Entries: 30
+2026-04-04 17:39:28 [INFO ] RssFeedAggregatorService - Sent to Discord: 30
+2026-04-04 17:39:28 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 30
+2026-04-04 17:39:28 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 17:39:28 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 17:41:51 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot v4.0
+2026-04-04 17:41:51 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 17:41:51 [INFO ] AppConfig - Kotlin Webhook: Configured
+2026-04-04 17:41:51 [INFO ] AppConfig - Android Webhook: Configured
+2026-04-04 17:41:51 [INFO ] AppConfig - Filter Hours: 720
+2026-04-04 17:41:51 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 17:41:51 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:41:51 [INFO ] AppConfig - Feeds: Kotlin Blog (Kotlin), Android Developers (Android)
+2026-04-04 17:41:51 [INFO ] AppConfig - ==================================
+2026-04-04 17:41:51 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:41:51 [INFO ] DuplicateDetector - Sent entries log file not found: sent_entries_kotlin.json. Starting fresh for Kotlin.
+2026-04-04 17:41:51 [INFO ] DuplicateDetector - Sent entries log file not found: sent_entries_android.json. Starting fresh for Android.
+2026-04-04 17:41:51 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:41:51 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 17:41:51 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 17:41:53 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 17:41:53 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 17:41:53 [DEBUG] RssFeedAggregatorService - Calculated priority for all entries
+2026-04-04 17:41:53 [DEBUG] RssEntryFilter - Filtered 37 entries to 30 within last 720 hours
+2026-04-04 17:41:53 [INFO ] RssFeedAggregatorService - Filtered to 30 entries after time and keyword filtering
+2026-04-04 17:41:53 [DEBUG] DuplicateDetector - Detected 0 duplicates from 30 entries
+2026-04-04 17:41:53 [INFO ] RssFeedAggregatorService - Found 30 new entries (after deduplication)
+2026-04-04 17:41:54 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1634B)
+2026-04-04 17:41:54 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 0
+2026-04-04 17:41:55 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1614B)
+2026-04-04 17:41:55 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 1
+2026-04-04 17:41:55 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1588B)
+2026-04-04 17:41:55 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 2
+2026-04-04 17:41:56 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1577B)
+2026-04-04 17:41:56 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 3
+2026-04-04 17:41:56 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1188B)
+2026-04-04 17:41:56 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 0
+2026-04-04 17:41:56 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1263B)
+2026-04-04 17:41:56 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 1
+2026-04-04 17:41:57 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1064B)
+2026-04-04 17:41:57 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 2
+2026-04-04 17:41:57 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1317B)
+2026-04-04 17:41:57 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 3
+2026-04-04 17:41:58 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1098B)
+2026-04-04 17:41:58 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 4
+2026-04-04 17:41:58 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1136B)
+2026-04-04 17:41:58 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 5
+2026-04-04 17:41:59 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1274B)
+2026-04-04 17:41:59 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 6
+2026-04-04 17:41:59 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1065B)
+2026-04-04 17:41:59 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 7
+2026-04-04 17:42:00 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1240B)
+2026-04-04 17:42:00 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 8
+2026-04-04 17:42:00 [ERROR] DiscordWebhookClient - Failed to send Discord message (payload: 1135B, embeds: [0: 🌿 Low Expanding our stage for PC and paid titles , 1: 🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel]): HTTP 400, error: {"embeds": ["1"]}
+2026-04-04 17:42:00 [WARN ] DiscordWebhookClient - Batch 9 failed, attempting to send individually...
+2026-04-04 17:42:01 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (554B)
+2026-04-04 17:42:01 [DEBUG] DiscordWebhookClient - Successfully sent individual embed 0 from batch 9
+2026-04-04 17:42:01 [ERROR] DiscordWebhookClient - Failed to send Discord message (payload: 618B, embeds: [0: 🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel]): HTTP 400, error: {"embeds": ["0"]}
+2026-04-04 17:42:01 [ERROR] DiscordWebhookClient - Individual embed 1 from batch 9 failed: '🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel' - Discord webhook error: 400 - {"embeds": ["0"]}
+2026-04-04 17:42:01 [INFO ] DiscordWebhookClient - Recovered 1/2 embeds from batch 9 by sending individually
+2026-04-04 17:42:02 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1277B)
+2026-04-04 17:42:02 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 10
+2026-04-04 17:42:02 [DEBUG] DuplicateDetector - Saved 8 new Kotlin entries to sent_entries_kotlin.json (total: 8)
+2026-04-04 17:42:02 [DEBUG] DuplicateDetector - Saved 22 new Android entries to sent_entries_android.json (total: 22)
+2026-04-04 17:42:02 [INFO ] RssFeedAggregatorService - Sent 30 entries to Discord
+2026-04-04 17:42:02 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 17:42:02 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 17:42:02 [INFO ] RssFeedAggregatorService - New Entries: 30
+2026-04-04 17:42:02 [INFO ] RssFeedAggregatorService - Sent to Discord: 30
+2026-04-04 17:42:02 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 30
+2026-04-04 17:42:02 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 17:42:02 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 17:42:19 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot v4.0
+2026-04-04 17:42:20 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 17:42:20 [INFO ] AppConfig - Kotlin Webhook: Configured
+2026-04-04 17:42:20 [INFO ] AppConfig - Android Webhook: Configured
+2026-04-04 17:42:20 [INFO ] AppConfig - Filter Hours: 720
+2026-04-04 17:42:20 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 17:42:20 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:42:20 [INFO ] AppConfig - Feeds: Kotlin Blog (Kotlin), Android Developers (Android)
+2026-04-04 17:42:20 [INFO ] AppConfig - ==================================
+2026-04-04 17:42:20 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:42:20 [INFO ] DuplicateDetector - Loaded 8 previously sent Kotlin entries
+2026-04-04 17:42:20 [INFO ] DuplicateDetector - Loaded 22 previously sent Android entries
+2026-04-04 17:42:20 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:42:20 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 17:42:20 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 17:42:22 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 17:42:22 [DEBUG] RssFeedAggregatorService - Calculated priority for all entries
+2026-04-04 17:42:22 [DEBUG] RssEntryFilter - Filtered 37 entries to 30 within last 720 hours
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - Filtered to 30 entries after time and keyword filtering
+2026-04-04 17:42:22 [DEBUG] DuplicateDetector - Detected 30 duplicates from 30 entries
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - Found 0 new entries (after deduplication)
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - No new entries to send
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - New Entries: 0
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - Sent to Discord: 0
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 30
+2026-04-04 17:42:22 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 17:42:22 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 17:43:01 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot v4.0
+2026-04-04 17:43:01 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 17:43:01 [INFO ] AppConfig - Kotlin Webhook: Configured
+2026-04-04 17:43:01 [INFO ] AppConfig - Android Webhook: Configured
+2026-04-04 17:43:01 [INFO ] AppConfig - Filter Hours: 720
+2026-04-04 17:43:01 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 17:43:01 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:43:01 [INFO ] AppConfig - Feeds: Kotlin Blog (Kotlin), Android Developers (Android)
+2026-04-04 17:43:01 [INFO ] AppConfig - ==================================
+2026-04-04 17:43:01 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:43:01 [INFO ] DuplicateDetector - Sent entries log file not found: sent_entries_kotlin.json. Starting fresh for Kotlin.
+2026-04-04 17:43:01 [INFO ] DuplicateDetector - Sent entries log file not found: sent_entries_android.json. Starting fresh for Android.
+2026-04-04 17:43:01 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 17:43:01 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 17:43:01 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 17:43:03 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 17:43:03 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 17:43:03 [DEBUG] RssFeedAggregatorService - Calculated priority for all entries
+2026-04-04 17:43:03 [DEBUG] RssEntryFilter - Filtered 37 entries to 30 within last 720 hours
+2026-04-04 17:43:03 [INFO ] RssFeedAggregatorService - Filtered to 30 entries after time and keyword filtering
+2026-04-04 17:43:03 [DEBUG] DuplicateDetector - Detected 0 duplicates from 30 entries
+2026-04-04 17:43:03 [INFO ] RssFeedAggregatorService - Found 30 new entries (after deduplication)
+2026-04-04 17:43:04 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1634B)
+2026-04-04 17:43:04 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 0
+2026-04-04 17:43:04 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1614B)
+2026-04-04 17:43:04 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 1
+2026-04-04 17:43:05 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1588B)
+2026-04-04 17:43:05 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 2
+2026-04-04 17:43:05 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1577B)
+2026-04-04 17:43:05 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 3
+2026-04-04 17:43:06 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1188B)
+2026-04-04 17:43:06 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 0
+2026-04-04 17:43:06 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1263B)
+2026-04-04 17:43:06 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 1
+2026-04-04 17:43:07 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1064B)
+2026-04-04 17:43:07 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 2
+2026-04-04 17:43:07 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1317B)
+2026-04-04 17:43:07 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 3
+2026-04-04 17:43:08 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1098B)
+2026-04-04 17:43:08 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 4
+2026-04-04 17:43:08 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1136B)
+2026-04-04 17:43:08 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 5
+2026-04-04 17:43:09 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1274B)
+2026-04-04 17:43:09 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 6
+2026-04-04 17:43:09 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1065B)
+2026-04-04 17:43:09 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 7
+2026-04-04 17:43:10 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1240B)
+2026-04-04 17:43:10 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 8
+2026-04-04 17:43:10 [ERROR] DiscordWebhookClient - Failed to send Discord message (payload: 1135B, embeds: [0: 🌿 Low Expanding our stage for PC and paid titles , 1: 🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel]): HTTP 400, error: {"embeds": ["1"]}
+2026-04-04 17:43:10 [WARN ] DiscordWebhookClient - Batch 9 failed, attempting to send individually...
+2026-04-04 17:43:11 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (554B)
+2026-04-04 17:43:11 [DEBUG] DiscordWebhookClient - Successfully sent individual embed 0 from batch 9
+2026-04-04 17:43:11 [ERROR] DiscordWebhookClient - Failed to send Discord message (payload: 618B, embeds: [0: 🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel]): HTTP 400, error: {"embeds": ["0"]}
+2026-04-04 17:43:11 [ERROR] DiscordWebhookClient - Individual embed 1 from batch 9 failed: '🌿 Low Boosting Android Performance: Introducing AutoFDO for the Kernel' - Discord webhook error: 400 - {"embeds": ["0"]}
+2026-04-04 17:43:11 [INFO ] DiscordWebhookClient - Recovered 1/2 embeds from batch 9 by sending individually
+2026-04-04 17:43:12 [INFO ] DiscordWebhookClient - Message sent to Discord successfully (1277B)
+2026-04-04 17:43:12 [DEBUG] DiscordWebhookClient - Successfully sent 2 embeds from batch 10
+2026-04-04 17:43:12 [DEBUG] DuplicateDetector - Saved 8 new Kotlin entries to sent_entries_kotlin.json (total: 8)
+2026-04-04 17:43:12 [DEBUG] DuplicateDetector - Saved 22 new Android entries to sent_entries_android.json (total: 22)
+2026-04-04 17:43:12 [INFO ] RssFeedAggregatorService - Sent 30 entries to Discord
+2026-04-04 17:43:12 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 17:43:12 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 17:43:12 [INFO ] RssFeedAggregatorService - New Entries: 30
+2026-04-04 17:43:12 [INFO ] RssFeedAggregatorService - Sent to Discord: 30
+2026-04-04 17:43:12 [INFO ] RssFeedAggregatorService - Tracked Total (All Feeds): 30
+2026-04-04 17:43:12 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 17:43:12 [INFO ] MainKt - Aggregation completed successfully

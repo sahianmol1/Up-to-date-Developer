@@ -77,7 +77,15 @@ class DuplicateDetector(
             }
 
             try {
-                val logs = objectMapper.readValue(file, Array<SentEntryLog>::class.java)
+                val content = file.readText().trim()
+                // Handle empty or whitespace-only files
+                if (content.isEmpty() || content == "[]") {
+                    logger.info("Sent entries log is empty for ${feedType.displayName}. Starting fresh.")
+                    sentEntriesByFeedType[feedType] = mutableSetOf()
+                    return@forEach
+                }
+                
+                val logs = objectMapper.readValue(content, Array<SentEntryLog>::class.java)
                 val links = logs.map { it.link }.toMutableSet()
                 sentEntriesByFeedType[feedType] = links
                 logger.info("Loaded ${links.size} previously sent ${feedType.displayName} entries")
@@ -98,7 +106,13 @@ class DuplicateDetector(
             
             // Load existing entries from this feed type's file
             val existing = if (file.exists()) {
-                objectMapper.readValue(file, Array<SentEntryLog>::class.java).toMutableList()
+                val content = file.readText().trim()
+                // Handle empty or whitespace-only files
+                if (content.isEmpty() || content == "[]") {
+                    mutableListOf()
+                } else {
+                    objectMapper.readValue(content, Array<SentEntryLog>::class.java).toMutableList()
+                }
             } else {
                 mutableListOf()
             }
