@@ -257,9 +257,9 @@ Run tests:
 
 ### Bot not sending messages
 
-1. **Check Discord webhook URL**
+1. **Check Discord webhook URLs**
    ```bash
-   echo $DISCORD_WEBHOOK_URL
+   echo $KOTLIN_WEBHOOK_URL && echo $ANDROID_WEBHOOK_URL
    ```
 
 2. **Check logs**

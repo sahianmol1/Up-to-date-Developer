@@ -92,26 +92,29 @@ UpToDateDeveloper/
 
 ## Getting Started (3 Steps)
 
-### 1. Get Discord Webhook
+### 1. Get Discord Webhooks
 ```bash
-# Discord Server → Settings → Integrations → Webhooks → Create New
-DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+# Discord Server → Settings → Integrations → Webhooks → Create New (one per channel)
+KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
 ```
 
 ### 2. Build & Run
 ```bash
-export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+export KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+export ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/..."
 ./gradlew run
 ```
 
 ### 3. Setup GitHub Actions (optional)
-Add secret in repo settings, workflow automatically runs every 6 hours.
+Add secrets in repo settings, workflow automatically runs every 6 hours.
 
 ## Configuration
 
 **Environment Variables:**
 ```bash
-DISCORD_WEBHOOK_URL     # Required - Discord webhook
+KOTLIN_WEBHOOK_URL     # Required - Discord webhook for Kotlin feed
+ANDROID_WEBHOOK_URL    # Required - Discord webhook for Android feed
 FILTER_HOURS           # Optional - Time window (default: 24)
 KEYWORDS               # Optional - Filter keywords
 FEEDS                  # Optional - Custom feeds
@@ -173,9 +176,10 @@ Fetch → Filter (Time + Keywords) → Deduplicate → Send → Mark as Sent →
 
 ## Next Steps
 
-1. **Add Your Discord Webhook**
+1. **Add Your Discord Webhooks**
    ```bash
-   export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+   export KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+   export ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/..."
    ```
 
 2. **Test Locally**
@@ -191,8 +195,8 @@ Fetch → Filter (Time + Keywords) → Deduplicate → Send → Mark as Sent →
    git push
    ```
 
-4. **Add Secret to GitHub**
-   - Repo → Settings → Secrets → Add `DISCORD_WEBHOOK_URL`
+4. **Add Secrets to GitHub**
+   - Repo → Settings → Secrets → Add `KOTLIN_WEBHOOK_URL` and `ANDROID_WEBHOOK_URL`
    - Workflow runs every 6 hours automatically
 
 ## Customization Examples
@@ -226,7 +230,7 @@ rm sent_entries.json
 ## Troubleshooting
 
 **No entries sent?**
-- Check webhook URL: `echo $DISCORD_WEBHOOK_URL`
+- Check webhook URLs: `echo $KOTLIN_WEBHOOK_URL && echo $ANDROID_WEBHOOK_URL`
 - Increase time filter: `export FILTER_HOURS=720`
 - Check logs: `tail -f logs/app.log`
 

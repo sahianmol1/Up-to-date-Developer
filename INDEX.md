@@ -11,8 +11,9 @@
 ## 🚀 Quick Start
 
 ```bash
-# 1. Set Discord webhook
-export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+# 1. Set Discord webhooks (one per feed type)
+export KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+export ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
 
 # 2. Run the bot
 ./gradlew run
@@ -97,14 +98,15 @@ export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
 
 ### Required
 ```bash
-DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
 ```
 
 ### Optional
 ```bash
 FILTER_HOURS=24              # Time window (hours)
 KEYWORDS="Kotlin,Compose"    # Keyword filter (comma-separated)
-FEEDS="name:url;name2:url2"  # Custom feeds
+FEEDS="name:url:TYPE;..."    # Custom feeds with feed type
 ```
 
 ## 🧪 Testing
@@ -145,7 +147,8 @@ Environment ──→ Config ──→ Fetch ──→ Filter ──→ Deduplic
 
 ### Run Locally
 ```bash
-export DISCORD_WEBHOOK_URL="..."
+export KOTLIN_WEBHOOK_URL="..."
+export ANDROID_WEBHOOK_URL="..."
 ./gradlew run
 ```
 
@@ -212,17 +215,17 @@ tail -f logs/app.log
 
 Getting started:
 - [ ] Read QUICKSTART.md
-- [ ] Get Discord webhook URL
-- [ ] Set DISCORD_WEBHOOK_URL environment variable
+- [ ] Get Discord webhook URLs (one per feed type)
+- [ ] Set KOTLIN_WEBHOOK_URL and ANDROID_WEBHOOK_URL environment variables
 - [ ] Run `./gradlew run`
 - [ ] Check Discord for messages
 - [ ] Review logs in `logs/app.log`
 
 Going to production:
 - [ ] Push to GitHub
-- [ ] Add `DISCORD_WEBHOOK_URL` as repository secret
+- [ ] Add `KOTLIN_WEBHOOK_URL` and `ANDROID_WEBHOOK_URL` as repository secrets
 - [ ] Workflow runs every 6 hours automatically
-- [ ] Monitor logs and Discord channel
+- [ ] Monitor logs and Discord channels
 
 ## 🔗 External Links
 

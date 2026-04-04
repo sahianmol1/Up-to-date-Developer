@@ -2,11 +2,11 @@
 
 ## 5-Minute Setup
 
-### 1. Get Discord Webhook URL
+### 1. Get Discord Webhook URLs
 - Open your Discord server
 - Settings → Integrations → Webhooks
-- Create New Webhook
-- Copy the URL
+- Create separate webhooks for Kotlin and Android channels
+- Copy both URLs
 
 ### 2. Clone & Setup
 ```bash
@@ -16,14 +16,15 @@ cd UpToDateDeveloper
 # Copy example env file
 cp .env.example .env
 
-# Edit .env with your Discord webhook URL
+# Edit .env with your Discord webhook URLs
 nano .env
 ```
 
 ### 3. Run Locally
 ```bash
-# Set environment variable
-export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+# Set environment variables
+export KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+export ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
 
 # Option A: Using Gradle
 ./gradlew run
@@ -35,14 +36,15 @@ java -jar build/libs/UpToDateDeveloper-1.0.0.jar
 
 ### 4. Setup GitHub Actions (Optional)
 1. Go to your repo → Settings → Secrets and variables → Actions
-2. Add secret: `DISCORD_WEBHOOK_URL` = your webhook URL
+2. Add secrets: `KOTLIN_WEBHOOK_URL` and `ANDROID_WEBHOOK_URL`
 3. Workflow automatically runs every 6 hours
 
 ## Testing
 
 ### Test with extended time window:
 ```bash
-export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+export KOTLIN_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+export ANDROID_WEBHOOK_URL="https://discord.com/api/webhooks/..."
 export FILTER_HOURS=720  # 30 days instead of 24 hours
 ./gradlew run
 ```
@@ -72,14 +74,14 @@ rm sent_entries.json
 Edit the feeds in `src/main/kotlin/com/uptodatedeveloper/config/AppConfig.kt` or use env var:
 
 ```bash
-export FEEDS="Kotlin:https://blog.jetbrains.com/kotlin/feed/;Android:https://android-developers.googleblog.com/atom.xml"
+export FEEDS="Kotlin:https://blog.jetbrains.com/kotlin/feed/:KOTLIN;Android:https://android-developers.googleblog.com/atom.xml:ANDROID"
 ```
 
 ## Troubleshooting
 
 ### "Discord webhook not configured"
-- Check: `echo $DISCORD_WEBHOOK_URL`
-- Should output the full webhook URL
+- Check: `echo $KOTLIN_WEBHOOK_URL && echo $ANDROID_WEBHOOK_URL`
+- Both should output their respective webhook URLs
 
 ### "No new entries"
 - Time filter might be too strict (default: 24 hours)
@@ -107,12 +109,12 @@ CMD java -jar build/libs/UpToDateDeveloper-1.0.0.jar
 
 ## Next Steps
 
-- [ ] Add your Discord webhook URL
+- [ ] Add your Discord webhook URLs
 - [ ] Run `./gradlew run` to test
 - [ ] Review logs in `logs/app.log`
 - [ ] Push to GitHub
-- [ ] Add `DISCORD_WEBHOOK_URL` secret in GitHub
-- [ ] Check Discord channel for updates
+- [ ] Add `KOTLIN_WEBHOOK_URL` and `ANDROID_WEBHOOK_URL` secrets in GitHub
+- [ ] Check Discord channels for updates
 
 ---
 

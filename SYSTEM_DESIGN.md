@@ -117,13 +117,14 @@
 START
   │
   ├─→ [CONFIG] Load environment variables
-  │      │ DISCORD_WEBHOOK_URL
+  │      │ KOTLIN_WEBHOOK_URL
+  │      │ ANDROID_WEBHOOK_URL
   │      │ FILTER_HOURS
   │      │ KEYWORDS
   │      │ FEEDS
   │      ↓
   ├─→ [VALIDATE] Check configuration
-  │      │ Webhook URL format
+  │      │ Webhook URL formats
   │      │ Feed URLs valid
   │      ↓
   ├─→ [FETCH] Get RSS entries
@@ -328,7 +329,7 @@ START
 └─────────────────────────────────────────────────────────┘
 
 Configuration Errors:
-  ├─→ Missing DISCORD_WEBHOOK_URL
+  ├─→ Missing KOTLIN_WEBHOOK_URL or ANDROID_WEBHOOK_URL
   │   └─→ Fail fast at startup ✗
   ├─→ Invalid webhook URL
   │   └─→ Fail fast at startup ✗
@@ -413,7 +414,8 @@ Scaling:
 │                    GitHub.com                              │
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │  Repository with Secrets                           │   │
-│  │  ├─ DISCORD_WEBHOOK_URL (encrypted)               │   │
+│  │  ├─ KOTLIN_WEBHOOK_URL (encrypted)                │   │
+│  │  ├─ ANDROID_WEBHOOK_URL (encrypted)               │   │
 │  │  ├─ Source code                                    │   │
 │  │  └─ .github/workflows/rss-aggregator.yml          │   │
 │  └────────────────────────┬────────────────────────────┘   │

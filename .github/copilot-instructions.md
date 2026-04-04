@@ -251,7 +251,8 @@ fetcher.fetchFeed()
 
 **All secrets from env vars** (AppConfig.kt):
 ```kotlin
-val discordWebhook: String = System.getenv("DISCORD_WEBHOOK_URL") ?: ""
+val kotlinWebhookUrl: String = System.getenv("KOTLIN_WEBHOOK_URL") ?: ""
+val androidWebhookUrl: String = System.getenv("ANDROID_WEBHOOK_URL") ?: ""
 ```
 
 **NEVER hardcode** secrets, URLs, or credentials:
@@ -260,7 +261,7 @@ val discordWebhook: String = System.getenv("DISCORD_WEBHOOK_URL") ?: ""
 val url = "https://webhook.discord.com/api/..."  // NO!
 
 // ✓ GOOD
-val url = System.getenv("DISCORD_WEBHOOK_URL")
+val url = System.getenv("KOTLIN_WEBHOOK_URL")
 ```
 
 ---
@@ -405,7 +406,7 @@ export ANDROID_WEBHOOK_URL="https://..."
 val webhook = "https://discord.com/api/webhooks/..."  // EXPOSED!
 
 // Always use env vars:
-val webhook = System.getenv("DISCORD_WEBHOOK_URL") ?: ""
+val webhook = System.getenv("KOTLIN_WEBHOOK_URL") ?: ""
 ```
 
 ### ❌ Mixing Business Logic with Infrastructure
