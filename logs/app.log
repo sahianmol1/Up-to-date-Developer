@@ -1,0 +1,103 @@
+2026-04-04 11:06:14 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot
+2026-04-04 11:06:14 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 11:06:14 [INFO ] AppConfig - Discord Webhook: NOT SET
+2026-04-04 11:06:14 [INFO ] AppConfig - Filter Hours: 24
+2026-04-04 11:06:14 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 11:06:14 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:06:14 [INFO ] AppConfig - Feeds: Kotlin Blog, Android Developers
+2026-04-04 11:06:14 [INFO ] AppConfig - ==================================
+2026-04-04 11:06:14 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:06:14 [ERROR] MainKt - Configuration validation failed:
+2026-04-04 11:06:14 [ERROR] MainKt -   - DISCORD_WEBHOOK_URL environment variable is not set
+2026-04-04 11:06:51 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot
+2026-04-04 11:06:51 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 11:06:51 [INFO ] AppConfig - Discord Webhook: Configured
+2026-04-04 11:06:51 [INFO ] AppConfig - Filter Hours: 24
+2026-04-04 11:06:51 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 11:06:51 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:06:51 [INFO ] AppConfig - Feeds: Kotlin Blog, Android Developers
+2026-04-04 11:06:51 [INFO ] AppConfig - ==================================
+2026-04-04 11:06:51 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:06:51 [INFO ] DuplicateDetector - Sent entries log file not found: sent_entries.json. Starting fresh.
+2026-04-04 11:06:51 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:06:51 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 11:06:51 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 11:06:52 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 11:06:52 [DEBUG] RssEntryFilter - Filtered 37 entries to 0 within last 24 hours
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - Filtered to 0 entries after time and keyword filtering
+2026-04-04 11:06:52 [DEBUG] DuplicateDetector - Detected 0 duplicates from 0 entries
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - Found 0 new entries (after deduplication)
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - No new entries to send
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - New Entries: 0
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - Sent to Discord: 0
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - Tracked Total: 0
+2026-04-04 11:06:52 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 11:06:52 [INFO ] MainKt - Aggregation completed successfully
+2026-04-04 11:07:46 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot
+2026-04-04 11:07:46 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 11:07:46 [INFO ] AppConfig - Discord Webhook: Configured
+2026-04-04 11:07:46 [INFO ] AppConfig - Filter Hours: 720
+2026-04-04 11:07:46 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 11:07:46 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:07:46 [INFO ] AppConfig - Feeds: Kotlin Blog, Android Developers
+2026-04-04 11:07:46 [INFO ] AppConfig - ==================================
+2026-04-04 11:07:46 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:07:46 [INFO ] DuplicateDetector - Sent entries log file not found: sent_entries.json. Starting fresh.
+2026-04-04 11:07:46 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:07:46 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 11:07:46 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 11:07:48 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 11:07:48 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 11:07:48 [DEBUG] RssEntryFilter - Filtered 37 entries to 30 within last 720 hours
+2026-04-04 11:07:48 [INFO ] RssFeedAggregatorService - Filtered to 30 entries after time and keyword filtering
+2026-04-04 11:07:48 [DEBUG] DuplicateDetector - Detected 0 duplicates from 30 entries
+2026-04-04 11:07:48 [INFO ] RssFeedAggregatorService - Found 30 new entries (after deduplication)
+2026-04-04 11:07:48 [ERROR] MainKt - Fatal error during aggregation
+java.time.temporal.UnsupportedTemporalTypeException: Unsupported field: YearOfEra
+	at java.base/java.time.Instant.getLong(Instant.java:603)
+	at java.base/java.time.format.DateTimePrintContext.getValue(DateTimePrintContext.java:308)
+	at java.base/java.time.format.DateTimeFormatterBuilder$NumberPrinterParser.format(DateTimeFormatterBuilder.java:2914)
+	at java.base/java.time.format.DateTimeFormatterBuilder$CompositePrinterParser.format(DateTimeFormatterBuilder.java:2529)
+	at java.base/java.time.format.DateTimeFormatter.formatTo(DateTimeFormatter.java:1905)
+	at java.base/java.time.format.DateTimeFormatter.format(DateTimeFormatter.java:1879)
+	at com.uptodatedeveloper.delivery.DiscordWebhookClient.createEmbed(DiscordWebhookClient.kt:93)
+	at com.uptodatedeveloper.delivery.DiscordWebhookClient.sendEntries-gIAlu-s(DiscordWebhookClient.kt:48)
+	at com.uptodatedeveloper.service.RssFeedAggregatorService.aggregate(RssFeedAggregatorService.kt:57)
+	at com.uptodatedeveloper.MainKt.main(Main.kt:44)
+	at com.uptodatedeveloper.MainKt.main(Main.kt)
+2026-04-04 11:08:45 [INFO ] MainKt - Starting UpToDate Developer RSS Feed Aggregator Bot
+2026-04-04 11:08:45 [INFO ] AppConfig - === Application Configuration ===
+2026-04-04 11:08:45 [INFO ] AppConfig - Discord Webhook: Configured
+2026-04-04 11:08:45 [INFO ] AppConfig - Filter Hours: 720
+2026-04-04 11:08:45 [INFO ] AppConfig - Keywords Filter: None
+2026-04-04 11:08:45 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:08:45 [INFO ] AppConfig - Feeds: Kotlin Blog, Android Developers
+2026-04-04 11:08:45 [INFO ] AppConfig - ==================================
+2026-04-04 11:08:45 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:08:45 [INFO ] DuplicateDetector - Sent entries log file not found: sent_entries.json. Starting fresh.
+2026-04-04 11:08:45 [INFO ] AppConfig - Using default feeds (configure via FEEDS env var)
+2026-04-04 11:08:45 [INFO ] RssFeedAggregatorService - Starting RSS aggregation for 2 feeds
+2026-04-04 11:08:45 [INFO ] RssFeedFetcher - Fetched 12 entries from Kotlin Blog
+2026-04-04 11:08:47 [INFO ] RssFeedFetcher - Fetched 25 entries from Android Developers
+2026-04-04 11:08:47 [INFO ] RssFeedAggregatorService - Fetched 37 total entries
+2026-04-04 11:08:47 [DEBUG] RssEntryFilter - Filtered 37 entries to 30 within last 720 hours
+2026-04-04 11:08:47 [INFO ] RssFeedAggregatorService - Filtered to 30 entries after time and keyword filtering
+2026-04-04 11:08:47 [DEBUG] DuplicateDetector - Detected 0 duplicates from 30 entries
+2026-04-04 11:08:47 [INFO ] RssFeedAggregatorService - Found 30 new entries (after deduplication)
+2026-04-04 11:08:48 [ERROR] DiscordWebhookClient - Failed to send Discord message: HTTP 404
+2026-04-04 11:08:48 [ERROR] RssFeedAggregatorService - Failed to send Kotlin Blog entries: Discord webhook error: 404
+2026-04-04 11:08:48 [ERROR] DiscordWebhookClient - Failed to send Discord message: HTTP 404
+2026-04-04 11:08:48 [ERROR] RssFeedAggregatorService - Failed to send Android Developers entries: Discord webhook error: 404
+2026-04-04 11:08:48 [INFO ] RssFeedAggregatorService - === Aggregation Results ===
+2026-04-04 11:08:48 [INFO ] RssFeedAggregatorService - Total Fetched: 37
+2026-04-04 11:08:48 [INFO ] RssFeedAggregatorService - New Entries: 30
+2026-04-04 11:08:48 [INFO ] RssFeedAggregatorService - Sent to Discord: 0
+2026-04-04 11:08:48 [INFO ] RssFeedAggregatorService - Tracked Total: 0
+2026-04-04 11:08:48 [WARN ] RssFeedAggregatorService - Errors (2):
+2026-04-04 11:08:48 [WARN ] RssFeedAggregatorService -   - Failed to send Kotlin Blog entries: Discord webhook error: 404
+2026-04-04 11:08:48 [WARN ] RssFeedAggregatorService -   - Failed to send Android Developers entries: Discord webhook error: 404
+2026-04-04 11:08:48 [INFO ] RssFeedAggregatorService - ===========================
+2026-04-04 11:08:48 [WARN ] MainKt - Completed with 2 errors
